@@ -1,0 +1,23 @@
+{
+  "name": "noroman/fssp",
+  "description": "API БДИП ФССП России",
+  "type": "library",
+  "require": {
+    "php": ">=7.1",
+    "guzzlehttp/guzzle": "^6.3"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Novikov Roman",
+      "email": "service.for.roman@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "Fssp\\": "src/"
+    }
+  }
+}
