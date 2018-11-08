@@ -16,7 +16,11 @@ class Connect
     protected $task;
     private $httpClient;
     private $httpParams = [
-        'Content-Type' => 'application/json',
+        'headers' => [
+            'Content-Type' => 'application/json',
+        ],
+        'connect_timeout' => 10,
+        'timeout' => 30,
     ];
     private $lastResponse;
     private $availableStatusCodes = [400, 401, 200];
