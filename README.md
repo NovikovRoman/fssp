@@ -20,9 +20,9 @@ use GuzzleHttp\Exception\GuzzleException;
 $token = '[token]';
 $birthday = new \DateTime('2000-01-01');
 $region = 02;
-$p1 = new Physical( 'Имя', 'Фамилия', 'Отчество', null, 21);
-$p2 = new Physical( 'Имя2', 'Фамилия2', '', null, $region);
-$p3 = new Physical( 'Имя2', 'Фамилия2', '', $birthday, $region);
+$p1 = new Physical( 'Фамилия', 'Имя', 'Отчество', null, 21);
+$p2 = new Physical( 'Фамилия2', 'Имя2', '', null, $region);
+$p3 = new Physical( 'Фамилия3', 'Имя3', '', $birthday, $region);
 $fssp = new Fssp($token);
 
 // создадим запрос
