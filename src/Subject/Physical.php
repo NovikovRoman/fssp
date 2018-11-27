@@ -6,6 +6,7 @@ class Physical implements SubjectInterface
 {
     const CODE = 'physical';
     const TYPE = 1;
+    const ALL_REGIONS = -1;
     private $region;
     private $firstname;
     private $lastname;
@@ -14,13 +15,14 @@ class Physical implements SubjectInterface
 
     /**
      * Physical constructor.
-     * @param $region
-     * @param $firstname
-     * @param $lastname
+     * @param string $lastname
+     * @param string $firstname
      * @param string $secondname
      * @param \DateTime|null $birthday
+     * @param integer $region
      */
-    public function __construct($region, $firstname, $lastname, $secondname = '', \DateTime $birthday = null)
+    public function __construct($lastname, $firstname, $secondname = '',
+                                \DateTime $birthday = null, $region = self::ALL_REGIONS)
     {
         $this->region = $region;
         $this->firstname = $firstname;

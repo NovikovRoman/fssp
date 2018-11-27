@@ -18,9 +18,12 @@ class Connect
     private $httpParams = [
         'headers' => [
             'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
         ],
-        'connect_timeout' => 10,
-        'timeout' => 30,
+        'connect_timeout' => 15,
+        'timeout' => 25,
+        'verify' => false,
+        'debug' => true,
     ];
     private $lastResponse;
     private $availableStatusCodes = [400, 401, 200];
@@ -79,6 +82,10 @@ class Connect
         $httpParams = $this->httpParams;
         $httpParams['form_params'] = $params;
         $httpParams['form_params']['token'] = $this->token;
+        // fixme: временный костыль. Разбираемся с ТП. Не работает, если не послать token в GET-параметрах
+        $httpParams['query'] = [
+            'token' => $this->token,
+        ];
         $request = new Request('POST', self::API_POINT . $this->method);
         return $this->send($request, $httpParams);
     }

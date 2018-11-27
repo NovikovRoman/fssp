@@ -59,7 +59,7 @@ class Fssp extends Connect
     }
 
     /**
-     * @param array $fsspSubjects
+     * @param array SubjectInterface $fsspSubjects
      * @return array
      * @throws FsspException
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -74,11 +74,10 @@ class Fssp extends Connect
             if (!$fsspSubject->isValid()) {
                 throw new FsspException('Invalid subject');
             }
-            $request = [
+            $params['request'][] = [
                 'type' => $fsspSubject->type(),
                 'params' => $fsspSubject->params(),
             ];
-            $params['request'][] = $request;
         }
         $this->method = '/search/group';
         return $this->post($params);

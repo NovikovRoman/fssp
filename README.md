@@ -18,13 +18,16 @@ use GuzzleHttp\Exception\GuzzleException;
 
 // полученный токен после регистрации
 $token = '[token]';
-$p1 = new Physical(21, 'Имя', 'Фамилия', 'Отчество');
-$p2 = new Physical(02, 'Имя2', 'Фамилия2');
+$birthday = new \DateTime('2000-01-01');
+$region = 02;
+$p1 = new Physical( 'Имя', 'Фамилия', 'Отчество', null, 21);
+$p2 = new Physical( 'Имя2', 'Фамилия2', '', null, $region);
+$p3 = new Physical( 'Имя2', 'Фамилия2', '', $birthday, $region);
 $fssp = new Fssp($token);
 
 // создадим запрос
 try {
-    $response = $fssp->searchGroup([$p1, $p2]);
+    $response = $fssp->searchGroup([$p1, $p2, $p3]);
 } catch (FsspException $e) {
     die('error: ' . $e->getMessage());
 } catch (GuzzleException $e) {
