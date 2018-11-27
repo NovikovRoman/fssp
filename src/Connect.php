@@ -23,7 +23,6 @@ class Connect
         'connect_timeout' => 15,
         'timeout' => 25,
         'verify' => false,
-        'debug' => true,
     ];
     private $lastResponse;
     private $availableStatusCodes = [400, 401, 200];
