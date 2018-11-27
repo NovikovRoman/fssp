@@ -11,25 +11,25 @@ class Physical implements SubjectInterface
     private $firstname;
     private $lastname;
     private $secondname;
-    private $birthday;
+    private $birthdate;
 
     /**
      * Physical constructor.
      * @param string $lastname
      * @param string $firstname
      * @param string $secondname
-     * @param \DateTime|null $birthday
+     * @param \DateTime|null $birthdate
      * @param integer $region
      */
     public function __construct($lastname, $firstname, $secondname = '',
-                                \DateTime $birthday = null, $region = self::ALL_REGIONS)
+                                \DateTime $birthdate = null, $region = self::ALL_REGIONS)
     {
-        $this->region = $region;
+        $this->region = $region ?: self::ALL_REGIONS;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->secondname = $secondname;
-        if ($birthday) {
-            $this->birthday = $birthday;
+        if ($birthdate) {
+            $this->birthdate = $birthdate;
         }
     }
 
@@ -59,7 +59,7 @@ class Physical implements SubjectInterface
             'firstname' => $this->firstname,
             'lastname' => $this->lastname,
             'secondname' => $this->secondname,
-            'birthday' => $this->birthday ? $this->birthday->format('d.m.Y') : '',
+            'birthdate' => $this->birthdate ? $this->birthdate->format('d.m.Y') : '',
         ];
     }
 }
