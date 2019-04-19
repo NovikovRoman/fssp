@@ -78,15 +78,14 @@ class Connect
      */
     protected function post(array $params)
     {
-        $httpParams = $this->httpParams;
-        $httpParams['form_params'] = $params;
-        $httpParams['form_params']['token'] = $this->token;
-        // fixme: временный костыль. Разбираемся с ТП. Не работает, если не послать token в GET-параметрах
-        $httpParams['query'] = [
-            'token' => $this->token,
-        ];
-        $request = new Request('POST', self::API_POINT . $this->method);
-        return $this->send($request, $httpParams);
+        $params['token'] = $this->token;
+        $request = new Request(
+            'POST',
+            self::API_POINT . $this->method,
+            [],
+            json_encode($params, JSON_UNESCAPED_UNICODE)
+        );
+        return $this->send($request, $this->httpParams);
     }
 
     /**
