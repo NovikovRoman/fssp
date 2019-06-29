@@ -4,6 +4,7 @@ namespace Fssp;
 
 use Fssp\Exception\FsspException;
 use Fssp\Subject\SubjectInterface;
+use GuzzleHttp\Exception\GuzzleException;
 
 /**
  * Class Fssp
@@ -20,7 +21,7 @@ class Fssp extends Connect
     /**
      * @param $task
      * @return array
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function status($task)
     {
@@ -32,7 +33,7 @@ class Fssp extends Connect
     /**
      * @param $task
      * @return array
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function result($task)
     {
@@ -46,7 +47,7 @@ class Fssp extends Connect
      * * @return array
      * @return array
      * @throws FsspException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function search(SubjectInterface $fsspSubject)
     {
@@ -62,7 +63,7 @@ class Fssp extends Connect
      * @param array SubjectInterface $fsspSubjects
      * @return array
      * @throws FsspException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function searchGroup(array $fsspSubjects)
     {

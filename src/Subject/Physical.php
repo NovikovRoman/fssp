@@ -2,6 +2,8 @@
 
 namespace Fssp\Subject;
 
+use DateTime;
+
 class Physical implements SubjectInterface
 {
     const CODE = 'physical';
@@ -18,11 +20,11 @@ class Physical implements SubjectInterface
      * @param string $lastname
      * @param string $firstname
      * @param string $secondname
-     * @param \DateTime|null $birthdate
+     * @param DateTime|null $birthdate
      * @param integer $region
      */
     public function __construct($lastname, $firstname, $secondname = '',
-                                \DateTime $birthdate = null, $region = self::ALL_REGIONS)
+                                DateTime $birthdate = null, $region = self::ALL_REGIONS)
     {
         $this->region = $region ?: self::ALL_REGIONS;
         $this->firstname = $firstname;

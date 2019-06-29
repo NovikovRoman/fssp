@@ -2,6 +2,8 @@
 
 namespace Fssp\Exception;
 
-class FsspException extends \Exception
+use Exception;
+
+class FsspException extends Exception
 {
 }
