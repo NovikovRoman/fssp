@@ -99,8 +99,8 @@ class Connect
         $response = $this->httpClient->send($request, $httpParams);
         if (in_array($response->getStatusCode(), $this->availableStatusCodes)) {
             $this->lastResponse = \GuzzleHttp\json_decode($response->getBody()->getContents(), true);
-            if (!empty($this->lastResponse['task'])) {
-                $this->task = $this->lastResponse['task'];
+            if (!empty($this->lastResponse['response']['task'])) {
+                $this->task = $this->lastResponse['response']['task'];
             }
             return $this->lastResponse;
         }
