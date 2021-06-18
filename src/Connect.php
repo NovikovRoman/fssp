@@ -9,7 +9,7 @@ use GuzzleHttp\Psr7\Request;
 
 class Connect
 {
-    const API_POINT = 'https://api-ip.fssprus.ru/api/v1.0';
+    const API_POINT = 'https://api-ip.fssp.gov.ru/api/v1.0';
     protected $token;
     protected $method;
     protected $params;
