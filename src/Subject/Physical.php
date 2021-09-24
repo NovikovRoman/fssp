@@ -57,7 +57,7 @@ class Physical implements SubjectInterface
             'firstname' => $this->firstname,
             'lastname' => $this->lastname,
             'secondname' => $this->secondname,
-            'birthdate' => $this->birthdate ? $this->birthdate->format('d.m.Y') : '',
+            'birthdate' => $this->birthdate,
         ];
     }
 }
