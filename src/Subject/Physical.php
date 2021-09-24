@@ -43,11 +43,10 @@ class Physical implements SubjectInterface
 
     public function isValid(): bool
     {
-        $this->region = intval($this->region);
         $this->firstname = trim($this->firstname);
         $this->lastname = trim($this->lastname);
         $this->secondname = trim($this->secondname);
-        return ($this->region && $this->firstname && $this->lastname);
+        return ($this->region && $this->firstname && $this->lastname && $this->birthdate);
     }
 
     public function params(): array
