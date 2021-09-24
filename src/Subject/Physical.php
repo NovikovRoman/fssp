@@ -8,7 +8,6 @@ class Physical implements SubjectInterface
 {
     const CODE = 'physical';
     const TYPE = 1;
-    const ALL_REGIONS = -1;
     private $region;
     private $firstname;
     private $lastname;
@@ -23,16 +22,13 @@ class Physical implements SubjectInterface
      * @param DateTime|null $birthdate
      * @param integer $region
      */
-    public function __construct($lastname, $firstname, $secondname = '',
-                                DateTime $birthdate = null, $region = self::ALL_REGIONS)
+    public function __construct(string $lastname, string $firstname, string $secondname, DateTime $birthdate, int $region)
     {
-        $this->region = $region ?: self::ALL_REGIONS;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->secondname = $secondname;
-        if ($birthdate) {
-            $this->birthdate = $birthdate;
-        }
+        $this->birthdate = $birthdate;
+        $this->region = $region;
     }
 
     public function type(): int
