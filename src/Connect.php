@@ -12,7 +12,6 @@ class Connect
     const API_POINT = 'https://api-ip.fssp.gov.ru/api/v1.0';
     protected $token;
     protected $method;
-    protected $params;
     protected $task;
     private $httpClient;
     private $httpParams = [
@@ -38,12 +37,12 @@ class Connect
         return $this->task;
     }
 
-    public function isSuccess()
+    public function isSuccess(): bool
     {
         return (!$this->lastResponse || empty($this->lastResponse['code']));
     }
 
-    public function isError()
+    public function isError(): bool
     {
         return ($this->lastResponse && !empty($this->lastResponse['code']));
     }
@@ -76,7 +75,7 @@ class Connect
      * @return array
      * @throws GuzzleException
      */
-    protected function post(array $params)
+    protected function post(array $params): array
     {
         $params['token'] = $this->token;
         $request = new Request(

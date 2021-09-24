@@ -23,7 +23,7 @@ class Fssp extends Connect
      * @return array
      * @throws GuzzleException
      */
-    public function status($task)
+    public function status($task): array
     {
         $this->method = '/status';
         $this->task = $task;
@@ -35,7 +35,7 @@ class Fssp extends Connect
      * @return array
      * @throws GuzzleException
      */
-    public function result($task)
+    public function result($task): array
     {
         $this->method = '/result';
         $this->task = $task;
@@ -49,7 +49,7 @@ class Fssp extends Connect
      * @throws FsspException
      * @throws GuzzleException
      */
-    public function search(SubjectInterface $fsspSubject)
+    public function search(SubjectInterface $fsspSubject): array
     {
         $this->method = '/search/';
         if (!$fsspSubject->isValid()) {
@@ -65,7 +65,7 @@ class Fssp extends Connect
      * @throws FsspException
      * @throws GuzzleException
      */
-    public function searchGroup(array $fsspSubjects)
+    public function searchGroup(array $fsspSubjects): array
     {
         $params = ['request' => []];
         foreach ($fsspSubjects as $fsspSubject) {
